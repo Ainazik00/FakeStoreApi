@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.deveem.R
 import com.example.deveem.databinding.FragmentProductListBinding
@@ -60,17 +60,17 @@ class ProductListFragment : Fragment() {
         }
         super.onCreateOptionsMenu(menu, inflater)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_cart -> {
-                val navController = findNavController(R.id.nav_host_fragment)
+                val navController = findNavController()
                 navController.navigate(R.id.cartFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
 
     @androidx.annotation.OptIn(com.google.android.material.badge.ExperimentalBadgeUtils::class)

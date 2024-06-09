@@ -39,9 +39,9 @@ class CartFragment : Fragment() {
 
         viewModel.getCartContents()
 
-        viewModel.cartContents.observe(viewLifecycleOwner) { cartContents ->
-            adapter.updateProducts(cartContents)
-        }
+//        viewModel.cartContents.observe(viewLifecycleOwner) { cartContents ->
+//            adapter.updateProducts(cartContents)
+//        }
 
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             errorMessage?.let {
