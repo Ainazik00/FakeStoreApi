@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".presentation.ui.ProductDetailFragment">
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="380dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+       android:background="@drawable/img_8" />
+
+    <TextView
+        android:id="@+id/productTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@{product.title}"
+        android:textSize="18sp"
+        tools:text="Product Title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/product_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/gray_2"
+            android:textSize="16sp"
+            tools:text="Category" />
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@{product.description}"
+            tools:text="Mens cloching" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/product_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/gray_2"
+            android:textSize="16sp"
+            tools:text="Rating" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:numStars="5"
+            android:rating="2.3" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/gray_2"
+            android:textSize="16sp"
+            tools:text="Price" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@{String.valueOf(product.price)}"
+            android:textSize="28sp"
+            tools:text="99.99" />
+
+        <TextView
+            android:id="@+id/price_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/gray_2"
+            android:textSize="18sp"
+            tools:text="$" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/gray_2"
+        android:textSize="16sp"
+        tools:text="Description" />
+
+    <TextView
+        android:id="@+id/desc_detail"
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/gray_dark"
+        android:textSize="12sp"
+        tools:text="The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description." />
+
+
+    <Button
+        android:id="@+id/addToCartButton"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_background"
+        android:text="ADD TO CART"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</LinearLayout>

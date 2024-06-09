@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Базовый стиль приложения -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Цвет панели приложения -->
+        <item name="colorPrimary">@color/gray</item>
+        <!-- Цвет панели действий -->
+        <item name="colorPrimaryDark">@color/gray</item>
+        <!-- Цвет текста и значков на панели действий -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!-- Цвет фона текста на панели действий -->
+        <item name="android:textColorPrimaryInverse">@android:color/black</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+</resources>
