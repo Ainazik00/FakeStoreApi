@@ -10,10 +10,8 @@ import com.example.deveem.R
 import com.example.deveem.databinding.FragmentProductListBinding
 import com.example.deveem.presentation.viewmodel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
 
-@Suppress("DEPRECATION")
+
 @AndroidEntryPoint
 class ProductListFragment : Fragment() {
 
@@ -27,63 +25,40 @@ class ProductListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProductListBinding.inflate(inflater, container, false)
-        setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ProductAdapter(emptyList()) { product ->
+//        binding.btnCategory.setOnClickListener {
+//
+//        }
+
+        binding.icCart.setOnClickListener {
+            findNavController().navigate(R.id.cartFragment)
+        }
+
+
+        adapter = ProductAdapter(emptyList())
+        { product ->
             viewModel.addToCart(product)
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
 
-        viewModel.products.observe(viewLifecycleOwner) { products ->
+        viewModel.products.observe(viewLifecycleOwner)
+        { products ->
             adapter.updateProducts(products)
         }
 
-        viewModel.cartItemCount.observe(viewLifecycleOwner) { count: Int ->
-            activity?.invalidateOptionsMenu()
-        }
-
         viewModel.loadProducts()
+
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu, menu)
-        val cartItem = menu.findItem(R.id.action_cart)
-        val cartActionView = cartItem.actionView
-        if (cartActionView != null) {
-            updateBadge(cartActionView, viewModel.cartItemCount.value ?: 0)
-        }
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_cart -> {
-                val navController = findNavController()
-                navController.navigate(R.id.cartFragment)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-
-
-    @androidx.annotation.OptIn(com.google.android.material.badge.ExperimentalBadgeUtils::class)
-    private fun updateBadge(view: View, count: Int) {
-        val badge = BadgeDrawable.create(requireContext())
-        badge.number = count
-        badge.isVisible = count > 0
-        BadgeUtils.attachBadgeDrawable(badge, view)
-    }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+

@@ -12,56 +12,60 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.deveem.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+//
+//        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+//        navController = navHostFragment.navController
 
-        setupActionBarWithNavController(navController)
+   //     setupActionBarWithNavController(navController)
 
-        findViewById<Button>(R.id.img).setOnClickListener {
-            showCategoriesDialog()
-        }
+//        findViewById<Button>(R.id.img).setOnClickListener {
+//            showCategoriesDialog()
+//        }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        return navController.navigateUp() || super.onSupportNavigateUp()
+//    }
 
-    private fun showCategoriesDialog() {
-        val builder = AlertDialog.Builder(this)
-        val inflater = layoutInflater
-        val dialogView = inflater.inflate(R.layout.dialog_categories, null)
-        builder.setView(dialogView)
-
-        val radioGroup = dialogView.findViewById<RadioGroup>(R.id.radioGroup)
-
-        val dialog = builder.create()
-
-        dialogView.findViewById<Button>(R.id.btn_decline).setOnClickListener {
-            dialog.dismiss()
-        }
-
-        dialogView.findViewById<Button>(R.id.btn_accept).setOnClickListener {
-            val selectedId = radioGroup.checkedRadioButtonId
-            if (selectedId != -1) {
-                val selectedRadioButton = dialogView.findViewById<RadioButton>(selectedId)
-                val selectedCategory = selectedRadioButton.text.toString()
-                Toast.makeText(this, "Selected: $selectedCategory", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "No category selected", Toast.LENGTH_SHORT).show()
-            }
-            dialog.dismiss()
-        }
-
-        dialog.show()
-    }
+//    private fun showCategoriesDialog() {
+//        val builder = AlertDialog.Builder(this)
+//        val inflater = layoutInflater
+//        val dialogView = inflater.inflate(R.layout.dialog_categories, null)
+//        builder.setView(dialogView)
+//
+//        val radioGroup = dialogView.findViewById<RadioGroup>(R.id.radioGroup)
+//
+//        val dialog = builder.create()
+//
+//        dialogView.findViewById<Button>(R.id.btn_decline).setOnClickListener {
+//            dialog.dismiss()
+//        }
+//
+//        dialogView.findViewById<Button>(R.id.btn_accept).setOnClickListener {
+//            val selectedId = radioGroup.checkedRadioButtonId
+//            if (selectedId != -1) {
+//                val selectedRadioButton = dialogView.findViewById<RadioButton>(selectedId)
+//                val selectedCategory = selectedRadioButton.text.toString()
+//                Toast.makeText(this, "Selected: $selectedCategory", Toast.LENGTH_SHORT).show()
+//            } else {
+//                Toast.makeText(this, "No category selected", Toast.LENGTH_SHORT).show()
+//            }
+//            dialog.dismiss()
+//        }
+//
+//        dialog.show()
+//    }
 }

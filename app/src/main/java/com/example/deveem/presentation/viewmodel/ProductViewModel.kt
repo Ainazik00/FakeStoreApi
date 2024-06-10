@@ -7,9 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.deveem.domain.model.Product
 import com.example.deveem.domain.repository.CartRepository
 import com.example.deveem.domain.usecase.GetProductsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductViewModel(
+@HiltViewModel
+class ProductViewModel @Inject constructor(
     private val cartRepository: CartRepository,
     private val getProductsUseCase: GetProductsUseCase
 ) : ViewModel() {

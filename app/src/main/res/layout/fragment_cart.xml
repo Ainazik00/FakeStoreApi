@@ -34,24 +34,35 @@
                 app:popupTheme="@style/AppTheme.AppBarOverlay">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="380dp"
+                    android:layout_height="48dp"
                     android:layout_margin="16dp"
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/btn_back"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="12dp"
                         android:background="@drawable/img_9" />
 
                     <ImageView
-                        android:layout_width="116dp"
-                        android:layout_height="36dp"
+                        android:layout_width="24dp"
+                        android:layout_height="32dp"
                         android:layout_marginStart="100dp"
-                        android:background="@drawable/img_3" />
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/img_logo" />
 
+                    <TextView
+                        android:layout_width="88dp"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/bold"
+                        android:text="market"
+                        android:textColor="@color/black"
+                        android:textSize="28sp" />
 
                 </LinearLayout>
 
@@ -69,7 +80,6 @@
             android:textColor="@color/black"
             android:textSize="30sp" />
 
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -86,7 +96,7 @@
             android:id="@+id/cartRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_prd_cart"/>
+            tools:listitem="@layout/item_prd_cart" />
 
         <Button
             android:id="@+id/buyButton"
@@ -94,10 +104,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="16dp"
-            android:background="@drawable/btn_background"
-            android:text="ADD SOMETHING"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:backgroundTint="@color/black"
+            android:text="BUY"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

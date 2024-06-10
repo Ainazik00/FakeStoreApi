@@ -59,6 +59,10 @@ class CartFragment : Fragment() {
                 Toast.makeText(context, "Add something", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun onDestroyView() {

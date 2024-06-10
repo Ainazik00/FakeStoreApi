@@ -18,7 +18,7 @@ class ProductAdapter(
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productImageView: ImageView = itemView.findViewById(R.id.img)
         val productTextView: TextView = itemView.findViewById(R.id.title)
-        val addToCartButton: TextView = itemView.findViewById(R.id.addToCartButton)
+        val addToCartButton: TextView = itemView.findViewById(R.id.buyButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
